@@ -1,9 +1,13 @@
-# How to run details service
+# Bookinfo Detail Service
 
-## Prerequisite
-
-* Ruby 2.7
+## How to run with Docker
 
 ```bash
-ruby details.rb 9080
+# Build Docker Image for detail service
+docker build -t details .
+
+# Run details service on port 8080
+docker run -d --name details -p 8080:8080 details
 ```
+
+* Test with path `/details/***` and `/health`
