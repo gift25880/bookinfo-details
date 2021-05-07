@@ -36,3 +36,9 @@ jobs:
                 "COMMIT_SHA": "${{ github.sha }}"
               }
             }
+  acceptance-test:
+    needs: deploy
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check health check page
+        run: curl http://bookinfo.${{ env.ENV_NAME }}.opsta.net/student48/details/health | grep "Details is healthy"
